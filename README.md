@@ -1,7 +1,7 @@
-# DevOps Production Pipeline Project
+# DevSecOps Production Pipeline Project
 
 ## Overview
-This project demonstrates an end-to-end DevOps pipeline including infrastructure provisioning, CI/CD automation, containerization, and Kubernetes deployment.
+End-to-end DevSecOps pipeline implementing CI/CD, security scanning, containerization, and Kubernetes deployment.
 
 ## Tech Stack
 - AWS (EC2)
@@ -11,8 +11,15 @@ This project demonstrates an end-to-end DevOps pipeline including infrastructure
 - Jenkins (CI/CD)
 - Python Flask (Sample App)
 
-## Architecture Flow
-Code → Jenkins Pipeline → Docker Build → Docker Hub → Kubernetes Deployment
+## Architecture
+Developer → Jenkins → SAST → Docker → Trivy Scan → Kubernetes
+
+## Features
+- CI/CD using Jenkins
+- Infrastructure using Terraform
+- Container security scanning (Trivy)
+- Code scanning (Bandit)
+- Kubernetes deployment with health checks
 
 ## Setup Steps
 
@@ -35,8 +42,37 @@ cd terraform
 terraform init
 terraform apply
 
-## Features
+## Info
 - Automated CI/CD pipeline using Jenkins
 - Infrastructure provisioning using Terraform
 - Containerized application deployment
 - Kubernetes-based scaling and service exposure
+
+  
+## Outcome
+- Reduced deployment effort
+- Improved security posture
+- Automated full delivery pipeline
+
+
+kubectl get pods
+
+  NAME                          READY   STATUS    RESTARTS   AGE
+devops-app-xxxx               1/1     Running   0          2m
+devops-app-yyyy               1/1     Running   0          2m
+
+kubectl get svc
+devops-app-service   NodePort   ...   30007
+
+http://<your-ec2-ip>:30007
+DevOps Pipeline Running Successfully
+
+docker images
+devops-app   latest
+
+Bandit
+No issues identified
+Trivy
+Total: 0 (CRITICAL: 0, HIGH: 0)
+
+
