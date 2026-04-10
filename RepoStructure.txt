@@ -1,0 +1,18 @@
+devops-production-pipeline/
+│
+├── app/
+│   ├── app.py
+│   ├── requirements.txt
+│   └── Dockerfile
+│
+├── k8s/
+│   ├── deployment.yaml
+│   └── service.yaml
+│
+├── terraform/
+│   ├── main.tf
+│   ├── variables.tf
+│   └── outputs.tf
+│
+├── Jenkinsfile
+└── README.md
